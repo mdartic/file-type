@@ -254,6 +254,10 @@ Detect the file type of a readable stream.
 
 Returns a `Promise` which resolves to the original readable stream argument, but with an added `fileType` property, which is an object like the one returned from `FileType.fromFile()`.
 
+TVery handy to put in between a stream, but it comes for a price.
+Internally `stream()` builds up a buffer of 4100 bytes, used as a sample, to determine the file type.
+Having only a limited sample available has an impact on the file detection resolution.
+
 *Note:* This method is only available using Node.js.
 
 #### readableStream
